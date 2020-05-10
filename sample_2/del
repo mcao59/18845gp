@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+rm -r cache1
+mkdir cache1
+
+for i in $(seq 100); do
+	rm out_${i}.txt
+done
+wait
