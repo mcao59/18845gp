@@ -1,0 +1,11 @@
+
+#!/usr/bin/bash
+echo "wow for the 0th time" | LD_PRELOAD=../lib/lib440lib.so ../tools/440write output.txt > out_0.txt &
+sleep 10
+for i in $(seq 3); do
+        echo "wow for the ${i} time" | LD_PRELOAD=../lib/lib440lib.so ../tools/440write output.txt > out_${i}.txt &
+        sleep 0.5
+done
+wait
+duration=$SECONDS
+echo "$(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed."
